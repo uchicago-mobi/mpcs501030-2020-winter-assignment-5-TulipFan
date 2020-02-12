@@ -46,7 +46,9 @@ class MapViewController: UIViewController {
         let placeAnnotation = DataManager.sharedInstance.loadAnnotationFromPlist()
         mapView.addAnnotations(placeAnnotation)
         mapView.delegate = self
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         //Referenced playground from class
         guard CLLocationManager.locationServicesEnabled() else {
             return
@@ -176,7 +178,7 @@ extension MapViewController: CLLocationManagerDelegate {
                 for favorite in defaults {
                     for annotation in DataManager.sharedInstance.loadAnnotationFromPlist() {
                         if favorite == annotation.name {
-                            if currentLocation.distance(from: CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)) < 3000000 {
+                            if currentLocation.distance(from: CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)) < 30000 {
                                 favoriteList.append(favorite)
                             }
                         }
