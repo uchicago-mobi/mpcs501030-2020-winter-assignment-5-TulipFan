@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+//Each TableViewCell has a label showing the name of the place
 class FavoriteCell: UITableViewCell {
     @IBOutlet weak var FavoriteName: UILabel!
 }

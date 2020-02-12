@@ -12,7 +12,7 @@ import MapKit
 class Place: MKPointAnnotation {
     var name: String? = nil
     var longDescription: String? = nil
-    //check to see if the place is marked as favorite or not
+    //Check to see if the place is marked as favorite or not to determine if the star should be filled or empty
     var isFavorite: Bool {
         let array: [String] = UserDefaults.standard.array(forKey: "name") as? [String] ?? []
         return array.contains(where: { (currentItem) -> Bool in
